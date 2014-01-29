@@ -1,0 +1,156 @@
+<apex:page controller="RichTableSampleController" showHeader="true" sidebar="false" docType="html-5.0">
+    
+    <style type="text/css">
+         <!--
+            CSS Reference Site
+            http://weboook.blog22.fc2.com/blog-entry-329.html
+         -->
+        #vf-page {
+            width: 980px;
+            margin: 40px auto;
+        }
+        
+        #vf-page * {
+            font-family: sans-serif;
+        }
+        
+        #vf-page .webparkList input {
+            background-color: transparent;
+            border-style: none;
+            text-align: center;
+            width: 180px;
+        }
+        
+        #vf-page .webparkList table th,
+        #vf-page .webparkList table td {
+            width: 200px;
+        }
+        
+        #vf-page table.webparkList {
+            width: 100%;
+            border-spacing: 0;
+            font-size:14px;
+        }
+    
+        #vf-page table.webparkList th {
+            color: #fff;
+            padding: 8px 15px;
+            background: #258;
+            background:-moz-linear-gradient(rgba(34,85,136,0.7), rgba(34,85,136,0.9) 50%);
+            background:-webkit-gradient(linear, 100% 0%, 100% 50%, from(rgba(34,85,136,0.7)), to(rgba(34,85,136,0.9)));
+            font-weight: bold;
+            border-left:1px solid #258;
+            border-top:1px solid #258;
+            border-bottom:1px solid #258;
+            line-height: 120%;
+            text-align: center;
+        }
+    
+        #vf-page table.webparkList tr td {
+            padding: 8px 15px;
+            border-bottom: 1px solid #84b2e0;
+            border-left: 1px solid #84b2e0;
+            text-align: center;
+        }
+        
+        #vf-page table.webparkList tr {
+            background: #fff;
+        }
+    
+        #vf-page table.webparkList tr:nth-child(2n+1) {
+            background: #f1f6fc;
+        }
+    
+        #vf-page table.webparkList tr:last-child td {
+            box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+        }
+        
+        #vf-page table.webparkList tr:hover {
+            background: #bbd4ee;
+        }
+    </style>
+    <div id="vf-page">
+        <apex:form >
+            <div style="overflow:hidden;width:900px;" id="divHeader">
+                <table style="width:2000px;" class="webparkList">
+                    <thead>
+                        <tr>
+                            <th>
+                                <apex:outputText value="Title1" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title2" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title3" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title4" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title5" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title6" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title7" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title8" />
+                            </th>
+                            <th>
+                                <apex:outputText value="Title9" />
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div style="overflow:scroll;width:916px;height:200px;" onScroll="getScroll(document.getElementById('divHeader'), this)" id="divBody">
+                <table style="width:2000px;" class="webparkList">
+                    <tbody>
+                        <apex:repeat value="{!lists}" var="item">
+                            <tr>
+                                <td>
+                                    <apex:inputText value="{!inputText1}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText2}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText3}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText4}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText5}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText6}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText7}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText8}" maxLength="10" />
+                                </td>
+                                <td>
+                                    <apex:inputText value="{!inputText9}" maxLength="10" />
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </div>
+        </apex:form>
+    </div>
+    <script>
+        beenFocused = true;
+        
+        function getScroll(divHeader, divBody) {
+            divHeader.scrollLeft = divBody.scrollLeft;
+            return false;
+        }
+    </script>
+</apex:page>
